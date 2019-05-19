@@ -1,8 +1,7 @@
-dist: bionic
+language: minimal
 
 jobs:
   include:
-    - language: php
     - stage: build
       script:
       - docker build -t php-lua .
