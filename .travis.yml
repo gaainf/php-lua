@@ -1,0 +1,11 @@
+dist: bionic
+
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - docker build -t php-lua .
+    - stage: test
+      - docker run -it --rm gaainf/php-lua lua -v
+      - docker run -it --rm gaainf/php-lua run-tests.php /usr/local/lib/php/test/lua/tests/
