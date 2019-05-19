@@ -2,11 +2,9 @@ language: minimal
 
 jobs:
   include:
-    - stage: build
+    - stage: build and test
       script:
       - docker build -t php-lua .
       - docker images
-    - stage: test
-      script: 
       - docker run -it --rm php-lua lua -v
       - docker run -it --rm php-lua run-tests.php /usr/local/lib/php/test/lua/tests/
